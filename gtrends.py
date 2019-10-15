@@ -75,7 +75,10 @@ def workflow(fdir):
 
 
 if __name__ == "__main__":
-    workflow(sys.argv[1])
+    if len(sys.argv) != 2:
+        print("Expecting the path to your csv file")
+    else:
+        workflow(sys.argv[1])
 
 
 
