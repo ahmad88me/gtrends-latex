@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Latex gtrends</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 <body>
-    <div class="alert alert-warning" role="alert">
-Copy the content of your CSV file here (see the sample)
+<div class="alert alert-warning" role="alert">
+    Copy the content of your CSV file here (see the sample)
 </div>
 <textarea id="list" rows="10" class="form-control">
 X,Y1,Y2
@@ -16,23 +17,27 @@ X,Y1,Y2
 2005,78.00,0.50
 2006,65.50,9.50
 </textarea><br>
-    <button type="button" class="btn btn-warning" onclick="pick()">Generate Latex code</button><br><br>
+<button type="button" class="btn btn-warning" onclick="pick()">Generate Latex code</button>
+<br><br>
 
-    <p id="output"></p>
+<p id="output"></p>
 
-    <div>The latex of the output</div>
-    <textarea id="latexout" rows="10" class="form-control">
+<div>The latex of the output</div>
+<textarea id="latexout" rows="10" class="form-control">
 
 </textarea><br>
 
-    <div>
+<div>
 
-        You might need to use <strong>\usepackage{tikz}</strong> and <strong>\usepackage{pgfplots}</strong><br>
-        You can save the output to a file (e.g., graph1.tex) and then use the following snippet
-        <blockquote>
+    You might need to use <strong>\usepackage{tikz}</strong> and <strong>\usepackage{pgfplots}</strong><br>
+    You can save the output to a file (e.g., graph1.tex) and then use the following snippet:
+
+</div>
+
+<blockquote>
   <pre>
     <code>
-        \begin{figure}[h]%[!hbtp]
+        \begin{figure}[h]
 		\center
 		\input{graph1}
 		\caption{your caption}
@@ -42,7 +47,10 @@ X,Y1,Y2
   </pre>
 </blockquote>
 
-    </div>
+<div>
+    If you have a lot of points (in the X-axis), you can remove the <i>xticks</i> and <i>xticklabels</i> from the
+    generated text (if you remove them, a subset of them will be generate automatically)
+</div>
 
 <script>
     function pick(){
@@ -72,6 +80,8 @@ X,Y1,Y2
             xticks+=inner[0]+","
         }
         xticks = xticks.substring(0,xticks.length-1)
+        console.log("xticks")
+        console.log(xticks)
         console.log(coor)
 
         var t=""
@@ -104,7 +114,8 @@ X,Y1,Y2
 title={},
 xlabel={},
 ylabel={},`
-        var top2= "xtick={"+xticks+"},"
+        //var top2= "xtick={"+xticks+"},"
+        var top2 = ""
         var top3= "xticklabels={"+xticks+"},"
         var top4=`
 legend pos=north west,
@@ -118,6 +129,7 @@ grid style=dashed,
         return top+top2+top3+top4+t+tale
     }
 
+
 </script>
-    </body>
+</body>
 </html>

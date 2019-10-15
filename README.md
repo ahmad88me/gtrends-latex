@@ -10,3 +10,5 @@ click here
 ```
 python gtrends.py tests/gtrends1.csv 
 ```
+
+*Contributions are welcome*
