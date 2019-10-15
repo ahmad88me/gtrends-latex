@@ -109,7 +109,7 @@ X,Y1,Y2
     function generate_full(t, xticks){
 
         var top=`
-\\begin{tikzpicture}
+\\begin{tikzpicture}[scale=1.0]
 \\begin{axis}[
 title={},
 xlabel={},
@@ -118,7 +118,7 @@ ylabel={},`
         var top2 = ""
         var top3= "xticklabels={"+xticks+"},"
         var top4=`
-legend pos=north west,
+legend pos=outer north east,
 ymajorgrids=true,
 xmajorgrids=true,
 grid style=dashed,
